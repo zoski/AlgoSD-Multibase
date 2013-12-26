@@ -28,30 +28,52 @@ Puis résultat de l'expression dans la base mise en paramètre (si pas de préc�
 Signe optionnel, terme puis de 0 à n couple signe terme.
 
 La ligne que l'on doit évaluer doit respecter la grammaire suivante :
-	<ligne>::=[base] '=' <expression> ' ;'
+	<ligne>::=[base] '=' <expression> ' ;'*
+	
 	<expression>::=[signe]<terme>(<signe><terme>)*
+	
 	<signe>::= '+' | '-'
+	
 	<terme>::=<facteur>(<op><facteur>)*
+	
 	<op>::= '*' | '/'
+	
 	<facteur>::=<entier> | '(' <expression> ')'
+	
 	<entier>::=[base'#']<nombre>
+	
 	<base>::=<chiffre>(<chiffre>)*
+	
 	<chiffre>::= '0' ... '9'
+	
 	<nombre>::=<caractere>(<caractere>)*
+	
 	<caractere::=<chiffre> | <lettre>
+	
 	<lettre>::= 'A' ...'Z', 'a'...'z'
 	
 Exemples
 --------
 > 2=55 ;
+
 110111
+
 > 36=35 ;
+
 z
+
 > 2=8/(4-2#101) ;
+
 -1000
+
 > 2=8/(4-2#100) ;
 	       ^ division par zéro //facultatif de positionner la boulette
+
 > 37=8 ;
+
 Base interdite
+
 > 2=(56+2)/5-(3) ;
+
 Parenthèse manquante.
+
