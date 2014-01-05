@@ -2,18 +2,35 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+/*
+	Gaël Alberola
+	Julien Bellec
+	
+	Fait :
+		Conversion Base 10 à Base N
+		Conversion Base N à Base 10
+		Prompt sommaire avec fonction quitter (quit)
+	
+	A faire :
+		enBase retourne un string (en cours)
+		Aide dans le prompt
+		Vérification de la grammaire
+		Opération mathématiques
+	
+
+*/
 
 				/***** PROTOTYPES *****/
 void prompt() ;
 int convNum(int entree, int baseE, int baseS) ;
-char* enBase(int entree, int base) ;	/* de la base 10 à autre */
+char *enBase(int entree, int base) ;	/* de la base 10 à autre */
 int enBase10(char* entree, int base);	/* d'une base à la base 10 */
 int poids(char lettre, int base);
 
 				/***** MAIN ******/
 int main(int argc, char *argv[]) {
 	
-	char *sol = malloc(sizeof(enBase(3, 36)));
+	char *sol = enBase(3, 36);
 	printf("Sol = %s\n", sol);
 	int test = enBase10("1C4", 16);
 	printf("Résulat de la converison %d\n", test);
@@ -46,7 +63,7 @@ char* enBase(int entree, int base) {
 	
 	for ( index ; index>=0 ; index--) {	/* on affiche depuis le dernier enregistré */
 		int i =0 ;
-		resultat[i]=alphabet[sol[index]];
+		sprintf(strcat(resultat, alphabet[sol[index]]) , "%c", alphabet[sol[index]]);
 	}
 	return resultat ;			
 	/*for ( index ; index>=0 ; index--) {	/* on affiche depuis le dernier enregistré 
@@ -70,7 +87,7 @@ int enBase10(char* entree, int base) {
 }
 
 
-/* VERIFIé*/
+/* Retourne le poids d'une lettre de l'alphabet. Nécessaire à la conversion base 10 à base N*/
 int poids(char lettre, int base) {
 	int i ;
 	char alphabet[36] = 
