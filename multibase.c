@@ -1,32 +1,30 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <math.h>
 
 				/***** PROTOTYPES *****/
-void enBase(int entree, int base) ;
 void prompt() ;
 int convNum(int entree, int baseE, int baseS) ;
-int enBase10(char* entree, int base);
+char* enBase(int entree, int base) ;	/* de la base 10 à autre */
+int enBase10(char* entree, int base);	/* d'une base à la base 10 */
 int poids(char lettre, int base);
 
-
-
-
-
-
+				/***** MAIN ******/
 int main(int argc, char *argv[]) {
-	//enBase(0, 36);
-	//prompt();
-	int test = pow(16,1);
-	//int test = enBase10("4", 16);
-	printf("%d\n", test);
+	
+	char *sol = malloc(sizeof(enBase(3, 36)));
+	printf("Sol = %s\n", sol);
+	int test = enBase10("1C4", 16);
+	printf("Résulat de la converison %d\n", test);
 	return 0;
 }
 
 				/***** FONCTIONS *****/
 
 /* Convertis en base 'base' l'entier rentré dans la base 10 */
-void enBase(int entree, int base) {
+char* enBase(int entree, int base) {
+	char *resultat ; //a retourner
 	char alphabet[36] = 
 	/*chiffres et lettres représentant l'alphabet utilisé pour les différentes bases*/
 		 {'0', '1', '2', '3', '4', '5', '6', '7',
@@ -45,10 +43,16 @@ void enBase(int entree, int base) {
 	index--;/* on recule pour pointer le dernier élément enregistré */
 	
 	/* Affichage */
-	printf("\n");					
+	
 	for ( index ; index>=0 ; index--) {	/* on affiche depuis le dernier enregistré */
-		printf("%c", alphabet[sol[index]]);
+		int i =0 ;
+		resultat[i]=alphabet[sol[index]];
 	}
+	return resultat ;			
+	/*for ( index ; index>=0 ; index--) {	/* on affiche depuis le dernier enregistré 
+		printf("%c", alphabet[sol[index]]);
+	}*/
+	
 }
 
 /*			*/
@@ -57,10 +61,7 @@ int enBase10(char* entree, int base) {
 	int taille = strlen(entree);
 	int puissance, sol = 0;
 	while(taille != 0) {
-		
-		
-	
-		resultat = poids(entree[taille], base)*pow((double)base,(double)puissance);	/*multipli du poids de la lettre fois la base^index*/
+		resultat = poids(entree[taille-1], base)*pow((double)base,(double)puissance);	/*multipli du poids de la lettre fois la base^index*/
 		sol = sol + resultat ;
 		taille = taille - 1;
 		puissance ++ ;
