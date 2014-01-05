@@ -28,7 +28,7 @@ Puis résultat de l'expression dans la base mise en paramètre (si pas de préc�
 Signe optionnel, terme puis de 0 à n couple signe terme.
 
 La ligne que l'on doit évaluer doit respecter la grammaire suivante :
-	<ligne>::=[base] '=' <expression> ' ;'*
+	<ligne>::=[base] '=' <expression> ';'*
 	
 	<expression>::=[signe]<terme>(<signe><terme>)*
 	
@@ -37,7 +37,7 @@ La ligne que l'on doit évaluer doit respecter la grammaire suivante :
 	<terme>::=<facteur>(<op><facteur>)*
 	
 	<op>::= '*' | '/'
-	
+
 	<facteur>::=<entier> | '(' <expression> ')'
 	
 	<entier>::=[base'#']<nombre>
