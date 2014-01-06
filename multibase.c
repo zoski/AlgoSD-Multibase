@@ -16,8 +16,6 @@
 		Aide dans le prompt
 		Vérification de la grammaire
 		Opération mathématiques
-	
-
 */
 
 				/***** PROTOTYPES *****/
@@ -29,30 +27,30 @@ int poids(char lettre, int base);
 
 				/***** MAIN ******/
 int main(int argc, char *argv[]) {
-	
-	char *sol = enBase(3, 36);
+	prompt();
+	/*char *sol = enBase(3, 36);
 	printf("Sol = %s\n", sol);
 	int test = enBase10("1C4", 16);
-	printf("Résulat de la converison %d\n", test);
+	printf("Résulat de la converison %d\n", test);*/
 	return 0;
 }
 
 				/***** FONCTIONS *****/
 
-/* Convertis en base 'base' l'entier rentré dans la base 10 */
+/* Convertis en base N l'entier rentré dans la base 10 */
 char* enBase(int entree, int base) {
 	char *resultat ; //a retourner
 	char alphabet[36] = 
-	/*chiffres et lettres représentant l'alphabet utilisé pour les différentes bases*/
+	/*chiffres et lettres représentant l'alphabet utilisé pour les base de 2 à 36 */
 		 {'0', '1', '2', '3', '4', '5', '6', '7',
 		  '8', '9', 'A', 'B', 'C', 'D', 'E', 'F',
 		  'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
 		  'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
 		  'W', 'X', 'Y', 'Z'};
-	int sol[64] ;			/* tableau de la solution */
+	int sol[64] ;			/* tableau de stockage de la solution */
 	int index = 0 ;
 	
-	while (entree != 0) {
+	while (entree != 0) {	/* Conversion */
 		sol[index] = entree%base;
 		entree = entree/base;
 		index ++;
@@ -121,9 +119,9 @@ void prompt() {
 		printf("\n> ");
 
 		scanf("%s", reponse);
-		printf("%s", reponse);	//debug
+		//printf("%s", reponse);	//debug
 		compa = strcmp(reponse, quit);
-		//évalutation de la commande
+		//évalutation de la commande ensuite
 		
 		
 	} while(compa!=0) ; 
