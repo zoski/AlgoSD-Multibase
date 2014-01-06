@@ -11,10 +11,10 @@
 		Conversion Base N à Base 10 
 		Prompt sommaire avec fonction quitter (quit)
 		Aide dans le prompt
-		Opération mathématiques (addition/soustraction, multiplication, division)
+		Opérations mathématiques (addition/soustraction, multiplication, division)
 	
 	A faire :
-		Implémentation de la grammaire <=> parseur ENCOURS
+		Implémentation de la grammaire <=> parseur EN COURS
 		Vérification de la grammaire
 		Comversion minuscule en majuscule
 */
@@ -56,7 +56,7 @@ char* enBase(int entree, int base) {
 	char *resultat ; //a retourner
 	int i =0;
 	char alphabet[36] = 
-	/* chiffres et lettres représentant l'alphabet utilisé pour les base de 2 à 36 */
+	/* chiffres et lettres représentant l'alphabet utilisé pour les bases de 2 à 36 */
 		 {'0', '1', '2', '3', '4', '5', '6', '7',
 		  '8', '9', 'A', 'B', 'C', 'D', 'E', 'F',
 		  'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
@@ -84,7 +84,6 @@ char* enBase(int entree, int base) {
 	/*for ( index ; index>=0 ; index--) {	// on affiche depuis le dernier enregistré 
 		printf("%c", alphabet[sol[index]]);
 	}*/
-	
 }
 
 /*	Converti en Base 10		*/
@@ -192,7 +191,7 @@ char* multiplication(char* e1, int baseE1, char* e2, int baseE2, int baseS) {
 
 	/* Division entière */
 char* divison(char* e1, int baseE1, char* e2, int baseE2, int baseS) {
-	int division = 0 ;	// résultats de la conversion
+	int division = 0 ;	// résultat de la conversion
 	
 	division = enBase10(e1, baseE1) / enBase10(e1, baseE1);	//conversion en base 10 puis somme
 	
